@@ -18,7 +18,6 @@ namespace CPW211_UnitTestStarterCode.Tests
         [DataRow(0, -0)]
         public void Add_TwoNumbers_ReturnsSum(double num1, double num2)
         {
-            // Use the DataRow values to test the Add method
             double expected = num1 + num2;
             double final = SimpleMath.Add(num1, num2);
 
@@ -32,7 +31,6 @@ namespace CPW211_UnitTestStarterCode.Tests
         [DataRow(2.5, 2.5)]
         public void Multiply_TwoNumbers_ReturnsProduct(double num1, double num2)
         {
-            // Use a few pairs of values to test the Multiply method
             double expected = num1 * num2;
             double result = SimpleMath.Multiply(num1, num2);
 
@@ -42,13 +40,34 @@ namespace CPW211_UnitTestStarterCode.Tests
         [TestMethod]
         public void Divide_DenominatorZero_ThrowsArgumentException()
         {
-            // Divide by zero should throw an argument exception with a message
-            // "Denominator cannot be zero"
             Assert.ThrowsException<ArgumentException>((() => SimpleMath.Divide(0, 0)));
         }
 
-        // TODO: Test Divide method with two valid numbers
+        [TestMethod]
+        [DataRow(10, 2)]
+        [DataRow(20, 5)]
+        [DataRow(15, 3)]
+        [DataRow(100, 25)]
+        [DataRow(50, 10)]
+        public void Divide_TwoNumbers_ReturnsProduct(double num1, double num2)
+        {
+            double expected = num1 / num2;
+            double result = SimpleMath.Divide(num1, num2);
 
-        // TODO: Test subtract method with two valid numbers
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        [DataRow(5, 10)]
+        [DataRow(0, 100)]
+        [DataRow(-1, -10)]
+        [DataRow(0, -0)]
+        public void Subtract_TwoNumbers_ReturnsProduct(double num1, double num2)
+        {
+            double expected = num1 - num2;
+            double result = SimpleMath.Subtract(num1, num2);
+
+            Assert.AreEqual(expected, result);
+        }
     }
 }
